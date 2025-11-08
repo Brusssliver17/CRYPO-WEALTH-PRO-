@@ -3,199 +3,1423 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CryptoWealth Pro - Grow Your Money 300%</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>CryptoWealth Pro - Elite Investment Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{background:#0f0f0f;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
-        .container{max-width:1300px;margin:0 auto;padding:0 20px;}
-
-        header{
-            position:fixed;top:0;left:0;right:0;padding:20px 0;z-index:1000;
-            background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .nav{display:flex;justify-content:space-between;align-items:center;}
-        .logo img{height:65px;filter:drop-shadow(0 0 25px #ffd700);transition:0.5s;}
-        .logo img:hover{transform:scale(1.15) rotate(8deg);}
-        .login-btn{background:#ffd700;color:#000;padding:12px 35px;border-radius:50px;font-weight:700;cursor:pointer;transition:0.3s;}
-        .login-btn:hover{transform:scale(1.05);box-shadow:0 0 20px #ffd700;}
-
-        .hero{
-            height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
-            background:linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.92)),
-            url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80');
-            background-size:cover;background-position:center;
+        
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
         }
-        .hero h1{font-family:'Orbitron',sans-serif;font-size:5.5rem;
-            background:linear-gradient(45deg,#ffd700,#ffed4e);
-            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-            text-shadow:0 0 40px rgba(255,215,0,0.6);}
-        .hero p{font-size:1.7rem;margin:30px 0;opacity:0.9;}
-        .cta-btn{background:#ffd700;color:#000;padding:22px 65px;font-size:1.6rem;font-weight:700;
-            border-radius:50px;cursor:pointer;box-shadow:0 0 50px #ffd700;animation:pulse 2s infinite;}
-        @keyframes pulse{0%,100%{box-shadow:0 0 50px #ffd700;}50%{box-shadow:0 0 80px #ffd700;}}
-        .cta-btn:hover{transform:scale(1.12);}
-
-        .plans{padding:140px 0;background:#111;text-align:center;}
-        .plans h2{font-family:'Orbitron',sans-serif;font-size:4rem;margin-bottom:80px;
-            background:linear-gradient(45deg,#ffd700,#ffed4e);
-            -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .cards{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;}
-        .card{
-            background:#1a1a1a;width:360px;padding:45px 30px;border-radius:30px;
-            border:3px solid #333;transition:0.6s;position:relative;overflow:hidden;
-            box-shadow:0 15px 40px rgba(0,0,0,0.6);
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .card:hover{border:3px solid #ffd700;transform:translateY(-25px);
-            box-shadow:0 0 80px rgba(255,215,0,0.6);}
-        .icon-bg{
-            width:110px;height:110px;margin:0 auto 20px;
-            background:radial-gradient(circle, #ffd700, #b8860b);
-            border-radius:50%;display:flex;align-items:center;justify-content:center;
-            font-size:3.5rem;color:#000;animation:float 3s infinite;
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
         }
-        @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
-        .card h3{font-family:'Orbitron',sans-serif;font-size:2.3rem;color:#ffd700;margin:15px 0;}
-        .invest{font-size:1.7rem;margin:15px 0;color:#fff;}
-        .return{font-size:2.6rem;font-weight:700;color:#ffd700;margin:25px 0;}
-        .invest-btn{background:#ffd700;color:#000;width:88%;padding:20px;margin:35px auto 0;
-            border-radius:50px;font-weight:700;font-size:1.4rem;cursor:pointer;transition:0.3s;}
-        .invest-btn:hover{background:#ffed4e;transform:scale(1.07);}
-
-        footer{background:#000;padding:70px 0;text-align:center;border-top:1px solid #333;}
-        .footer-logo img{height:80px;filter:drop-shadow(0 0 30px #ffd700);}
-
-        .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.97);
-            display:none;align-items:center;justify-content:center;z-index:9999;}
-        .popup{background:#1a1a1a;width:90%;max-width:520px;padding:50px;border-radius:25px;
-            text-align:center;border:3px solid #ffd700;animation:pop 0.5s ease;}
-        @keyframes pop{from{transform:scale(0.3);opacity:0;}to{transform:scale(1);opacity:1;}}
-        .close-btn{position:absolute;top:15px;right:25px;font-size:2.5rem;color:#ffd700;cursor:pointer;}
-        .wallet{background:#333;padding:25px;border-radius:18px;margin:25px 0;
-            word-break:break-all;font-family:monospace;font-size:1.2rem;}
-        .copy-btn{background:#ffd700;color:#000;padding:15px 30px;border:none;border-radius:50px;
-            margin-top:20px;cursor:pointer;font-weight:700;}
-        .success{background:#28a745;color:white;padding:25px;border-radius:18px;margin:25px 0;display:none;}
-
-        @media(max-width:768px){
-            .hero h1{font-size:3.2rem;}
-            .hero p{font-size:1.3rem;}
-            .cta-btn{font-size:1.3rem;padding:18px 50px;}
-            .plans h2{font-size:2.8rem;}
-            .card{width:90%;max-width:380px;}
-            .icon-bg{width:90px;height:90px;font-size:2.8rem;}
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 0 20px #ffd700);
+            transition: 0.3s;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(10, 10, 10, 0.95)),
+                        url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1), transparent 70%);
+            animation: pulse-bg 4s infinite;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5.5rem;
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero p {
+            font-size: 1.8rem;
+            margin: 25px 0;
+            opacity: 0.9;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd700;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .cta-btn {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            padding: 22px 65px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+            animation: pulse-btn 2s infinite;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        
+        @keyframes pulse-btn {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.8); }
+        }
+        
+        .cta-btn:hover {
+            transform: scale(1.08);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #0a0a0a, #111);
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.8rem;
+            margin-bottom: 70px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: 0.4s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #000;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        /* Live Crypto Ticker */
+        .crypto-ticker {
+            background: #000;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .ticker-wrapper {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            margin: 0 40px;
+            white-space: nowrap;
+        }
+        
+        .ticker-item i {
+            color: #ffd700;
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .ticker-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .ticker-change {
+            margin-left: 10px;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .ticker-change.up {
+            background: #28a745;
+            color: #fff;
+        }
+        
+        /* Plans Section */
+        .plans {
+            padding: 120px 0;
+            background: #0a0a0a;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            padding: 45px 30px;
+            border-radius: 30px;
+            border: 2px solid #333;
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent 70%);
+            opacity: 0;
+            transition: 0.5s;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card:hover {
+            border: 2px solid #ffd700;
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .icon-bg {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #000;
+            animation: float 3s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .invest {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .return {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .plan-features li i {
+            color: #ffd700;
+            margin-right: 10px;
+        }
+        
+        .invest-btn {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            width: 100%;
+            padding: 20px 15px;
+            margin: 25px 0 0;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            min-height: 100px;
+        }
+        
+        .invest-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
+        }
+        
+        .btn-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .btn-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+        
+        .btn-wallet {
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            font-weight: 700;
+        }
+        
+        .btn-action {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+        
+        .wallet-display {
+            background: #000;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0 15px;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #0a0a0a, #111);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .testimonial-profit {
+            color: #ffd700;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-text {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .stars {
+            color: #ffd700;
+            margin-top: 15px;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 120px 0;
+            background: #0a0a0a;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: rgba(26, 26, 26, 0.8);
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        
+        .faq-question:hover {
+            color: #ffd700;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            padding: 0 25px;
+            opacity: 0.9;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 25px 25px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+        
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #ffd700;
+            color: #000;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* Payment Modal */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.97);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .popup {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            width: 90%;
+            max-width: 600px;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            border: 2px solid #ffd700;
+            animation: pop 0.4s ease;
+            position: relative;
+        }
+        
+        @keyframes pop {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: #ffd700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        .popup h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .wallet-section {
+            background: #000;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .wallet {
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #ffd700;
+            margin: 15px 0;
+        }
+        
+        .copy-btn {
+            background: #ffd700;
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        
+        .copy-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .qr-code {
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .success {
+            background: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .timer {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin: 20px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #ffd700;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .cta-btn {
+                font-size: 1.3rem;
+                padding: 18px 45px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .stats-bar {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-wallet {
+                font-size: 0.75rem;
+                padding: 8px;
+            }
+            
+            .btn-label {
+                font-size: 0.8rem;
+            }
+            
+            .btn-action {
+                font-size: 0.95rem;
+            }
+            
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
+    <!-- Header -->
     <header>
         <div class="container nav">
             <div class="logo">
-                <img src="https://i.ibb.co/5YxK7nK/golden-crypto-wealth-pro-logo.png" alt="CryptoWealth Pro">
+                <img src="WhatsApp Image 2025-11-08 at 10.05.39_68d5cc5c.jpg" alt="CryptoWealth Pro">
             </div>
-            <div class="login-btn">Login</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#plans">Plans</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Grow Your Wealth With Crypto</h1>
-            <p>Invest securely and earn up to 300% returns.</p>
-            <div class="cta-btn" onclick="openPayment(500,'Starter')">Get Started Now</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Elite Crypto Investment</h1>
+            <p>Your Gateway to Financial Freedom</p>
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-label">Active Investors</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$<span data-target="50">0</span>M+</div>
+                    <div class="stat-label">Total Invested</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-target="300">0</div>
+                    <div class="stat-label">% Max Returns</div>
+                </div>
+            </div>
+            <button class="cta-btn" onclick="document.getElementById('plans').scrollIntoView({behavior: 'smooth'})">
+                Start Investing Now
+            </button>
         </div>
     </section>
 
-    <section class="plans">
-        <div class="container">
-            <h2>Choose Your Plan</h2>
-            <div class="cards">
+    <!-- Crypto Ticker -->
+    <div class="crypto-ticker">
+        <div class="ticker-wrapper">
+            <div class="ticker-item">
+                <i class="fab fa-bitcoin"></i>
+                <span>BTC: <span class="ticker-price">$67,234</span></span>
+                <span class="ticker-change up">+2.4%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fab fa-ethereum"></i>
+                <span>ETH: <span class="ticker-price">$3,456</span></span>
+                <span class="ticker-change up">+1.8%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fas fa-coins"></i>
+                <span>USDT: <span class="ticker-price">$1.00</span></span>
+                <span class="ticker-change">0.0%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fab fa-bitcoin"></i>
+                <span>BTC: <span class="ticker-price">$67,234</span></span>
+                <span class="ticker-change up">+2.4%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fab fa-ethereum"></i>
+                <span>ETH: <span class="ticker-price">$3,456</span></span>
+                <span class="ticker-change up">+1.8%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fas fa-coins"></i>
+                <span>USDT: <span class="ticker-price">$1.00</span></span>
+                <span class="ticker-change">0.0%</span>
+            </div>
+        </div>
+    </div>
 
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Bank-Level Security</h3>
+                    <p>Military-grade encryption protects your investments 24/7 with multi-layer security protocols.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Instant Payouts</h3>
+                    <p>Receive your profits directly to your wallet within minutes of maturity. No delays, no hassles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Proven Track Record</h3>
+                    <p>Over 15,000 successful investments with 99.8% satisfaction rate from our global community.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Expert support team available round the clock to assist with all your investment needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Invest and manage your portfolio seamlessly from any device, anywhere in the world.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>Referral Rewards</h3>
+                    <p>Earn bonus commissions by referring friends and building your passive income stream.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Plans -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <h2 class="section-title">Investment Plans</h2>
+            <div class="cards">
                 <div class="card">
                     <div class="icon-bg"><i class="fas fa-rocket"></i></div>
                     <h3>Starter</h3>
                     <div class="invest">Invest $500 → Get $1,500</div>
                     <div class="return">200% Profit</div>
-                    <div>Duration: 7 Days</div>
-                    <div class="invest-btn" onclick="openPayment(500,'Starter')">Invest Now</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 7 Days Duration</li>
+                        <li><i class="fas fa-check"></i> Daily Progress Updates</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                        <li><i class="fas fa-check"></i> Secure Transactions</li>
+                    </ul>
+                    <button class="invest-btn" onclick="openPayment(500, 'Starter', 7)">
+                        <div class="btn-content">
+                            <div class="btn-label">Send Payment To:</div>
+                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+                            <div class="btn-action">Click to Confirm Payment</div>
+                        </div>
+                    </button>
                 </div>
-
+                
                 <div class="card">
+                    <span class="popular-badge">POPULAR</span>
                     <div class="icon-bg"><i class="fas fa-gem"></i></div>
                     <h3>Pro</h3>
                     <div class="invest">Invest $1,000 → Get $3,000</div>
                     <div class="return">200% Profit</div>
-                    <div>Duration: 7 Days</div>
-                    <div class="invest-btn" onclick="openPayment(1000,'Pro')">Invest Now</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 7 Days Duration</li>
+                        <li><i class="fas fa-check"></i> Real-Time Tracking</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Portfolio Dashboard</li>
+                    </ul>
+                    <button class="invest-btn" onclick="openPayment(1000, 'Pro', 7)">
+                        <div class="btn-content">
+                            <div class="btn-label">Send Payment To:</div>
+                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+                            <div class="btn-action">Click to Confirm Payment</div>
+                        </div>
+                    </button>
                 </div>
-
+                
                 <div class="card">
                     <div class="icon-bg"><i class="fas fa-crown"></i></div>
                     <h3>Premium</h3>
                     <div class="invest">Invest $2,000 → Get $6,000</div>
                     <div class="return">200% Profit</div>
-                    <div>Duration: 10 Days</div>
-                    <div class="invest-btn" onclick="openPayment(2000,'Premium')">Invest Now</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 10 Days Duration</li>
+                        <li><i class="fas fa-check"></i> VIP Support Channel</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-check"></i> Bonus Rewards</li>
+                    </ul>
+                    <button class="invest-btn" onclick="openPayment(2000, 'Premium', 10)">
+                        <div class="btn-content">
+                            <div class="btn-label">Send Payment To:</div>
+                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+                            <div class="btn-action">Click to Confirm Payment</div>
+                        </div>
+                    </button>
                 </div>
-
+                
                 <div class="card">
+                    <span class="popular-badge">BEST VALUE</span>
                     <div class="icon-bg"><i class="fas fa-medal"></i></div>
                     <h3>VIP Elite</h3>
                     <div class="invest">Invest $5,000 → Get $20,000</div>
                     <div class="return">300% Profit</div>
-                    <div>Duration: 14 Days</div>
-                    <div class="invest-btn" onclick="openPayment(5000,'VIP Elite')">Invest Now</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 14 Days Duration</li>
+                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                        <li><i class="fas fa-check"></i> Premium Insights</li>
+                        <li><i class="fas fa-check"></i> Exclusive Opportunities</li>
+                    </ul>
+                    <button class="invest-btn" onclick="openPayment(5000, 'VIP Elite', 14)">
+                        <div class="btn-content">
+                            <div class="btn-label">Send Payment To:</div>
+                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+                            <div class="btn-action">Click to Confirm Payment</div>
+                        </div>
+                    </button>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Michael Chen</div>
+                            <div class="testimonial-profit">Earned $18,000</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "Started with the Starter plan and was amazed by the results. Now I'm a VIP Elite member and the returns have been life-changing. Professional team, instant payouts!"
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Sarah Johnson</div>
+                            <div class="testimonial-profit">Earned $5,800</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "I was skeptical at first, but CryptoWealth Pro delivered exactly what they promised. The Premium plan doubled my investment in just 10 days. Highly recommended!"
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="testimonial-name">David Martinez</div>
+                            <div class="testimonial-profit">Earned $12,000</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "Best investment decision I've made. The support team is responsive, the platform is secure, and the returns are incredible. Already planning my next investment!"
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How does the investment process work?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Simply choose your plan, send USDT to our secure wallet, and confirm your payment. Your investment starts immediately and you'll receive your returns automatically at maturity.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        When will I receive my profits?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Profits are paid automatically to your wallet on the maturity date specified in your plan. Starter and Pro plans mature in 7 days, Premium in 10 days, and VIP Elite in 14 days.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Is my investment secure?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We use bank-level security with multi-layer encryption. Our platform has successfully processed over $50M in investments with a 99.8% satisfaction rate.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What cryptocurrencies do you accept?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Currently, we accept USDT (TRC20) for all investments. This ensures fast, secure, and stable transactions with minimal fees.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I invest multiple times?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! You can make unlimited investments across any of our plans. Many of our successful investors maintain multiple active investments simultaneously.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <img src="https://i.ibb.co/5YxK7nK/golden-crypto-wealth-pro-logo.png" alt="CryptoWealth Pro">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CryptoWealth Pro</h3>
+                    <p>Your trusted partner in cryptocurrency investment. Building wealth through innovative strategies and proven results.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#plans">Investment Plans</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@cryptowealth.pro</li>
+                        <li><i class="fab fa-telegram"></i> @cryptowealthpro</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support</li>
+                    </ul>
+                </div>
             </div>
-            <p>© 2025 CryptoWealth Pro — Made with Real Money Energy</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CryptoWealth Pro. All Rights Reserved. | Building Financial Freedom</p>
+            </div>
         </div>
     </footer>
 
-    <!-- YOUR WALLET POPUP -->
+    <!-- Payment Modal -->
     <div class="overlay" id="paymentOverlay">
         <div class="popup">
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2 id="planName">Starter Plan</h2>
-            <p>Send exactly <b id="amount">500</b> USDT (TRC20) to:</p>
-            <div class="wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
-            <button class="copy-btn" onclick="copyWallet()">Copy Address</button>
-            <div class="success" id="successMsg">Payment Confirmed! Profit in 7 days!</div>
-            <p>After payment, click below:</p>
-            <button class="cta-btn" onclick="confirmPayment()">I have paid</button>
+            <p style="font-size: 1.1rem; margin: 15px 0;">Send exactly <b id="amount" style="color: #ffd700;">500</b> USDT (TRC20)</p>
+            
+            <div class="wallet-section">
+                <p style="margin-bottom: 10px; opacity: 0.8;">Wallet Address:</p>
+                <div class="wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+                <button class="copy-btn" onclick="copyWallet()">
+                    <i class="fas fa-copy"></i> Copy Address
+                </button>
+            </div>
+            
+            <div class="qr-code" id="qrCode">
+                <canvas id="qrCanvas"></canvas>
+            </div>
+            
+            <div class="timer" id="timer">Time Remaining: 30:00</div>
+            
+            <div class="success" id="successMsg">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <p>Payment Confirmed! Your profit will be ready in <span id="days">7</span> days!</p>
+            </div>
+            
+            <p style="opacity: 0.8; margin: 20px 0;">After sending, click below to confirm:</p>
+            <button class="cta-btn" onclick="confirmPayment()" style="font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fas fa-check"></i> I Have Sent Payment
+            </button>
         </div>
     </div>
 
     <script>
-        function openPayment(amount, plan) {
+        // Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 20);
+        }
+
+        // Animate counters on page load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.stat-number [data-target]').forEach(animateCounter);
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('active');
+            
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Payment Modal Functions
+        let paymentTimer;
+        let timeLeft = 1800; // 30 minutes in seconds
+
+        function openPayment(amount, plan, days) {
             document.getElementById('amount').innerText = amount;
             document.getElementById('planName').innerText = plan + ' Plan';
+            document.getElementById('days').innerText = days;
             document.getElementById('paymentOverlay').style.display = 'flex';
+            
+            // Generate QR Code (simplified - in production use a QR library)
+            generateQR();
+            
+            // Start countdown timer
+            startTimer();
         }
+
+        function generateQR() {
+            const canvas = document.getElementById('qrCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 200;
+            canvas.height = 200;
+            
+            // Simple placeholder - use a real QR library in production
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 200, 200);
+            ctx.fillStyle = '#fff';
+            ctx.font = '12px monospace';
+            ctx.fillText('QR Code', 70, 100);
+        }
+
+        function startTimer() {
+            timeLeft = 1800;
+            updateTimerDisplay();
+            
+            paymentTimer = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(paymentTimer);
+                    alert('Payment window expired. Please try again.');
+                    closePopup();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `Time Remaining: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
         function copyWallet() {
-            navigator.clipboard.writeText('bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084');
-            alert('Wallet copied!');
+            const wallet = 'bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084';
+            navigator.clipboard.writeText(wallet).then(() => {
+                const btn = event.target.closest('.copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '#ffd700';
+                }, 2000);
+            });
         }
+
         function confirmPayment() {
             document.getElementById('successMsg').style.display = 'block';
-            setTimeout(() => { closePopup(); alert('Payment received! Profit processing!'); }, 2000);
+            clearInterval(paymentTimer);
+            
+            setTimeout(() => {
+                closePopup();
+                alert('✅ Payment received! Your profit will be sent automatically on maturity date. Track your investment in your dashboard.');
+            }, 2500);
         }
+
         function closePopup() {
             document.getElementById('paymentOverlay').style.display = 'none';
             document.getElementById('successMsg').style.display = 'none';
+            clearInterval(paymentTimer);
         }
+
+        // Close modal on outside click
         document.getElementById('paymentOverlay').onclick = function(e) {
             if (e.target === this) closePopup();
         };
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            alert('Mobile menu - implement as needed');
+        });
+
+        // Add scroll effect to header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.padding = '10px 0';
+            } else {
+                header.style.padding = '15px 0';
+            }
+            
+            lastScroll = currentScroll;
+        });
     </script>
 </body>
 </html>
