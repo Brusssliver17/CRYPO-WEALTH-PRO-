@@ -8,154 +8,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            background:#0f0f0f;
-            color:#fff;
-            font-family:'Rajdhani',sans-serif;
-            overflow-x:hidden;
-        }
+        body{background:#0f0f0f;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
         .container{max-width:1300px;margin:0 auto;padding:0 20px;}
 
-        /* Header */
         header{
-            position:fixed;top:0;left:0;right:0;
-            padding:20px 0;z-index:1000;
-            background:rgba(0,0,0,0.8);
-            backdrop-filter:blur(10px);
+            position:fixed;top:0;left:0;right:0;padding:20px 0;z-index:1000;
+            background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);
         }
         .nav{display:flex;justify-content:space-between;align-items:center;}
-        .logo img{
-            height:60px;
-            filter:drop-shadow(0 0 20px #ffd700);
-            transition:0.4s;
-        }
-        .logo img:hover{transform:scale(1.1) rotate(5deg);}
-        .login-btn{
-            background:#ffd700;color:#000;
-            padding:12px 35px;border-radius:50px;
-            font-weight:700;cursor:pointer;transition:0.3s;
-        }
-        .login-btn:hover{transform:scale(1.05);}
-        .menu-btn{display:none;font-size:1.8rem;cursor:pointer;color:#ffd700;}
+        .logo img{height:65px;filter:drop-shadow(0 0 25px #ffd700);transition:0.5s;}
+        .logo img:hover{transform:scale(1.15) rotate(8deg);}
+        .login-btn{background:#ffd700;color:#000;padding:12px 35px;border-radius:50px;font-weight:700;cursor:pointer;transition:0.3s;}
+        .login-btn:hover{transform:scale(1.05);box-shadow:0 0 20px #ffd700;}
 
-        /* Hero */
         .hero{
-            height:100vh;display:flex;align-items:center;justify-content:center;
-            background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
+            height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+            background:linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.92)),
             url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80');
             background-size:cover;background-position:center;
-            text-align:center;position:relative;
         }
-        .hero h1{
-            font-family:'Orbitron',sans-serif;font-size:5rem;
+        .hero h1{font-family:'Orbitron',sans-serif;font-size:5.5rem;
             background:linear-gradient(45deg,#ffd700,#ffed4e);
             -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-            text-shadow:0 0 30px rgba(255,215,0,0.5);
-        }
-        .hero p{font-size:1.6rem;margin:25px 0;opacity:0.9;}
-        .cta-btn{
-            background:#ffd700;color:#000;padding:20px 60px;
-            font-size:1.5rem;font-weight:700;border-radius:50px;
-            cursor:pointer;transition:0.4s;box-shadow:0 0 40px #ffd700;
-            animation:pulse 2s infinite;
-        }
-        @keyframes pulse{0%,100%{box-shadow:0 0 40px #ffd700;}50%{box-shadow:0 0 60px #ffd700;}}
-        .cta-btn:hover{transform:scale(1.1);}
+            text-shadow:0 0 40px rgba(255,215,0,0.6);}
+        .hero p{font-size:1.7rem;margin:30px 0;opacity:0.9;}
+        .cta-btn{background:#ffd700;color:#000;padding:22px 65px;font-size:1.6rem;font-weight:700;
+            border-radius:50px;cursor:pointer;box-shadow:0 0 50px #ffd700;animation:pulse 2s infinite;}
+        @keyframes pulse{0%,100%{box-shadow:0 0 50px #ffd700;}50%{box-shadow:0 0 80px #ffd700;}}
+        .cta-btn:hover{transform:scale(1.12);}
 
-        /* Plans */
-        .plans{padding:120px 0;background:#111;text-align:center;}
-        .plans h2{
-            font-family:'Orbitron',sans-serif;font-size:3.5rem;margin-bottom:70px;
+        .plans{padding:140px 0;background:#111;text-align:center;}
+        .plans h2{font-family:'Orbitron',sans-serif;font-size:4rem;margin-bottom:80px;
             background:linear-gradient(45deg,#ffd700,#ffed4e);
-            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-        }
-        .cards{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;}
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .cards{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;}
         .card{
-            background:#1a1a1a;width:340px;padding:40px 25px;
-            border-radius:25px;border:3px solid #333;
-            transition:0.5s;position:relative;overflow:hidden;
-            box-shadow:0 10px 30px rgba(0,0,0,0.5);
+            background:#1a1a1a;width:360px;padding:45px 30px;border-radius:30px;
+            border:3px solid #333;transition:0.6s;position:relative;overflow:hidden;
+            box-shadow:0 15px 40px rgba(0,0,0,0.6);
         }
-        .card::before{
-            content:'';position:absolute;top:0;left:0;width:100%;height:100%;
-            background:linear-gradient(45deg,rgba(255,215,0,0.1),transparent);
-            opacity:0;transition:0.5s;
+        .card:hover{border:3px solid #ffd700;transform:translateY(-25px);
+            box-shadow:0 0 80px rgba(255,215,0,0.6);}
+        .icon-bg{
+            width:110px;height:110px;margin:0 auto 20px;
+            background:radial-gradient(circle, #ffd700, #b8860b);
+            border-radius:50%;display:flex;align-items:center;justify-content:center;
+            font-size:3.5rem;color:#000;animation:float 3s infinite;
         }
-        .card:hover::before{opacity:1;}
-        .card:hover{
-            border:3px solid #ffd700;transform:translateY(-20px);
-            box-shadow:0 0 60px rgba(255,215,0,0.5);
-        }
-        .card img{
-            width:100%;height:180px;object-fit:cover;border-radius:15px;
-            margin-bottom:20px;transition:0.4s;
-        }
-        .card:hover img{transform:scale(1.05);}
-        .card h3{font-family:'Orbitron',sans-serif;font-size:2rem;color:#ffd700;margin:15px 0;}
-        .invest{font-size:1.6rem;margin:15px 0;}
-        .return{font-size:2.4rem;font-weight:700;color:#ffd700;margin:20px 0;}
-        .invest-btn{
-            background:#ffd700;color:#000;width:85%;padding:18px;
-            margin:30px auto;border-radius:50px;font-weight:700;
-            font-size:1.3rem;cursor:pointer;transition:0.3s;
-        }
-        .invest-btn:hover{background:#ffed4e;transform:scale(1.05);}
+        @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+        .card h3{font-family:'Orbitron',sans-serif;font-size:2.3rem;color:#ffd700;margin:15px 0;}
+        .invest{font-size:1.7rem;margin:15px 0;color:#fff;}
+        .return{font-size:2.6rem;font-weight:700;color:#ffd700;margin:25px 0;}
+        .invest-btn{background:#ffd700;color:#000;width:88%;padding:20px;margin:35px auto 0;
+            border-radius:50px;font-weight:700;font-size:1.4rem;cursor:pointer;transition:0.3s;}
+        .invest-btn:hover{background:#ffed4e;transform:scale(1.07);}
 
-        /* Footer */
-        footer{background:#000;padding:60px 0;text-align:center;border-top:1px solid #333;}
-        .footer-logo img{height:70px;filter:drop-shadow(0 0 20px #ffd700);}
+        footer{background:#000;padding:70px 0;text-align:center;border-top:1px solid #333;}
+        .footer-logo img{height:80px;filter:drop-shadow(0 0 30px #ffd700);}
 
-        /* Popups */
-        .overlay{
-            position:fixed;top:0;left:0;width:100%;height:100%;
-            background:rgba(0,0,0,0.95);display:none;align-items:center;
-            justify-content:center;z-index:9999;
-        }
-        .popup{
-            background:#1a1a1a;width:90%;max-width:500px;padding:40px;
-            border-radius:20px;text-align:center;border:2px solid #ffd700;
-            animation:pop 0.4s ease;
-        }
-        @keyframes pop{from{transform:scale(0.5);}to{transform:scale(1);}}
-        .close-btn{
-            position:absolute;top:15px;right:20px;font-size:2rem;
-            color:#ffd700;cursor:pointer;
-        }
-        .wallet{
-            background:#333;padding:20px;border-radius:15px;margin:20px 0;
-            word-break:break-all;font-family:monospace;font-size:1.1rem;
-        }
-        .copy-btn{
-            background:#ffd700;color:#000;padding:12px 25px;
-            border:none;border-radius:50px;margin-top:15px;cursor:pointer;
-        }
-        .success{
-            background:#28a745;color:white;padding:20px;
-            border-radius:15px;margin:20px 0;display:none;
-        }
+        .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.97);
+            display:none;align-items:center;justify-content:center;z-index:9999;}
+        .popup{background:#1a1a1a;width:90%;max-width:520px;padding:50px;border-radius:25px;
+            text-align:center;border:3px solid #ffd700;animation:pop 0.5s ease;}
+        @keyframes pop{from{transform:scale(0.3);opacity:0;}to{transform:scale(1);opacity:1;}}
+        .close-btn{position:absolute;top:15px;right:25px;font-size:2.5rem;color:#ffd700;cursor:pointer;}
+        .wallet{background:#333;padding:25px;border-radius:18px;margin:25px 0;
+            word-break:break-all;font-family:monospace;font-size:1.2rem;}
+        .copy-btn{background:#ffd700;color:#000;padding:15px 30px;border:none;border-radius:50px;
+            margin-top:20px;cursor:pointer;font-weight:700;}
+        .success{background:#28a745;color:white;padding:25px;border-radius:18px;margin:25px 0;display:none;}
 
-        /* Mobile Responsive */
-        @media(max-width:992px){
-            .hero h1{font-size:3.8rem;}
-            .cards{gap:30px;}
-        }
         @media(max-width:768px){
-            .menu-btn{display:block;}
-            .nav-links{
-                position:fixed;top:80px;left:-100%;width:100%;height:100vh;
-                background:#000;padding:50px 0;transition:0.4s;z-index:999;
-            }
-            .nav-links.active{left:0;}
-            .nav-links a{display:block;padding:20px;font-size:1.8rem;color:#ffd700;}
-            .hero h1{font-size:3rem;}
+            .hero h1{font-size:3.2rem;}
             .hero p{font-size:1.3rem;}
             .cta-btn{font-size:1.3rem;padding:18px 50px;}
             .plans h2{font-size:2.8rem;}
-            .card{width:90%;max-width:350px;}
-        }
-        @media(max-width:480px){
-            .hero h1{font-size:2.5rem;}
-            .logo img{height:50px;}
+            .card{width:90%;max-width:380px;}
+            .icon-bg{width:90px;height:90px;font-size:2.8rem;}
         }
     </style>
 </head>
@@ -166,138 +95,107 @@
             <div class="logo">
                 <img src="https://i.ibb.co/5YxK7nK/golden-crypto-wealth-pro-logo.png" alt="CryptoWealth Pro">
             </div>
-            <div class="login-btn" onclick="openLogin()">Login</div>
-            <div class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="login-btn">Login</div>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <h1>Grow Your Wealth With Crypto</h1>
             <p>Invest securely and earn up to 300% returns.</p>
-            <div class="cta-btn" onclick="document.querySelector('#starter .invest-btn').click()">
-                Get Started Now
-            </div>
+            <div class="cta-btn" onclick="openPayment(500,'Starter')">Get Started Now</div>
         </div>
     </section>
 
-    <!-- Plans -->
     <section class="plans">
         <div class="container">
-            <h2>Popular Plans</h2>
+            <h2>Choose Your Plan</h2>
             <div class="cards">
-                <div class="card" id="starter">
-                    <img src="https://images.unsplash.com/photo-1621503857923-9ff8c0ff9e0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Starter">
+
+                <div class="card">
+                    <div class="icon-bg"><i class="fas fa-rocket"></i></div>
                     <h3>Starter</h3>
-                    <div class="invest">Invest $500 - Get $1,500</div>
+                    <div class="invest">Invest $500 → Get $1,500</div>
                     <div class="return">200% Profit</div>
                     <div>Duration: 7 Days</div>
-                    <div>Capital Returned</div>
-                    <div class="invest-btn" onclick="invest('Starter',500,1500,'200%')">Invest Now</div>
+                    <div class="invest-btn" onclick="openPayment(500,'Starter')">Invest Now</div>
                 </div>
-                <div class="card" id="pro">
-                    <img src="https://images.unsplash.com/photo-1631603426695-3b2d493b43fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pro">
+
+                <div class="card">
+                    <div class="icon-bg"><i class="fas fa-gem"></i></div>
                     <h3>Pro</h3>
-                    <div class="invest">Invest $1,000 - Get $3,000</div>
+                    <div class="invest">Invest $1,000 → Get $3,000</div>
                     <div class="return">200% Profit</div>
                     <div>Duration: 7 Days</div>
-                    <div>Capital Returned</div>
-                    <div class="invest-btn" onclick="invest('Pro',1000,3000,'200%')">Invest Now</div>
+                    <div class="invest-btn" onclick="openPayment(1000,'Pro')">Invest Now</div>
                 </div>
-                <div class="card" id="premium">
-                    <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium">
+
+                <div class="card">
+                    <div class="icon-bg"><i class="fas fa-crown"></i></div>
                     <h3>Premium</h3>
-                    <div class="invest">Invest $2,000 - Get $6,000</div>
+                    <div class="invest">Invest $2,000 → Get $6,000</div>
                     <div class="return">200% Profit</div>
                     <div>Duration: 10 Days</div>
-                    <div>Capital Returned</div>
-                    <div class="invest-btn" onclick="invest('Premium',2000,6000,'200%')">Invest Now</div>
+                    <div class="invest-btn" onclick="openPayment(2000,'Premium')">Invest Now</div>
                 </div>
-                <div class="card" id="elite">
-                    <img src="https://images.unsplash.com/photo-1621768216001-4c2c8e8f2a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elite">
+
+                <div class="card">
+                    <div class="icon-bg"><i class="fas fa-medal"></i></div>
                     <h3>VIP Elite</h3>
-                    <div class="invest">Invest $5,000 - Get $20,000</div>
+                    <div class="invest">Invest $5,000 → Get $20,000</div>
                     <div class="return">300% Profit</div>
                     <div>Duration: 14 Days</div>
-                    <div>Capital Returned + Bonus</div>
-                    <div class="invest-btn" onclick="invest('VIP Elite',5000,20000,'300%')">Invest Now</div>
+                    <div class="invest-btn" onclick="openPayment(5000,'VIP Elite')">Invest Now</div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-logo">
                 <img src="https://i.ibb.co/5YxK7nK/golden-crypto-wealth-pro-logo.png" alt="CryptoWealth Pro">
             </div>
-            <p>© 2025 All Rights Reserved. Made with Real Money Energy</p>
+            <p>© 2025 CryptoWealth Pro — Made with Real Money Energy</p>
         </div>
     </footer>
 
-    <!-- Login Popup -->
-    <div class="overlay" id="loginOverlay">
-        <div class="popup">
-            <span class="close-btn" onclick="closePopup('loginOverlay')">&times;</span>
-            <h2>Login to Dashboard</h2>
-            <input type="text" placeholder="Username" style="width:100%;padding:15px;margin:15px 0;border-radius:10px;border:none;">
-            <input type="password" placeholder="Password" style="width:100%;padding:15px;margin:15px 0;border-radius:10px;border:none;">
-            <button class="cta-btn" style="width:100%;margin-top:20px;">Login Now</button>
-        </div>
-    </div>
-
-    <!-- Payment Popup -->
+    <!-- YOUR WALLET POPUP -->
     <div class="overlay" id="paymentOverlay">
         <div class="popup">
-            <span class="close-btn" onclick="closePopup('paymentOverlay')">&times;</span>
+            <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2 id="planName">Starter Plan</h2>
             <p>Send exactly <b id="amount">500</b> USDT (TRC20) to:</p>
-            <div class="wallet" id="walletAddr">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
+            <div class="wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
             <button class="copy-btn" onclick="copyWallet()">Copy Address</button>
             <div class="success" id="successMsg">Payment Confirmed! Profit in 7 days!</div>
             <p>After payment, click below:</p>
-            <button class="cta-btn" onclick="confirmPayment()" style="margin-top:15px;">I have paid</button>
+            <button class="cta-btn" onclick="confirmPayment()">I have paid</button>
         </div>
     </div>
 
     <script>
-        function openLogin() {
-            document.getElementById('loginOverlay').style.display = 'flex';
-        }
-
-        function invest(plan, send, receive, profit) {
+        function openPayment(amount, plan) {
+            document.getElementById('amount').innerText = amount;
             document.getElementById('planName').innerText = plan + ' Plan';
-            document.getElementById('amount').innerText = send;
             document.getElementById('paymentOverlay').style.display = 'flex';
         }
-
         function copyWallet() {
-            navigator.clipboard.writeText(document.getElementById('walletAddr').innerText);
-            alert('Wallet address copied to clipboard!');
+            navigator.clipboard.writeText('bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084');
+            alert('Wallet copied!');
         }
-
         function confirmPayment() {
             document.getElementById('successMsg').style.display = 'block';
-            setTimeout(() => {
-                closePopup('paymentOverlay');
-                alert('Congratulations! Your investment is active. Check dashboard in 7 days for profit!');
-            }, 2000);
+            setTimeout(() => { closePopup(); alert('Payment received! Profit processing!'); }, 2000);
         }
-
-        function closePopup(id) {
-            document.getElementById(id).style.display = 'none';
+        function closePopup() {
+            document.getElementById('paymentOverlay').style.display = 'none';
             document.getElementById('successMsg').style.display = 'none';
         }
-
-        document.querySelectorAll('.overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) overlay.style.display = 'none';
-            });
-        });
+        document.getElementById('paymentOverlay').onclick = function(e) {
+            if (e.target === this) closePopup();
+        };
     </script>
 </body>
 </html>
