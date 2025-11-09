@@ -682,6 +682,8 @@
             border: 2px solid #ffd700;
             animation: pop 0.4s ease;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         
         @keyframes pop {
@@ -747,12 +749,59 @@
             transform: scale(1.05);
         }
         
-        .qr-code {
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
+        /* Icon Slider */
+        .icon-slider {
+            margin: 30px 0;
+            overflow: hidden;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 0;
             border-radius: 15px;
-            display: inline-block;
+        }
+        
+        .icon-track {
+            display: flex;
+            animation: slide-icons 25s linear infinite;
+        }
+        
+        @keyframes slide-icons {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .icon-slide-item {
+            min-width: 70px;
+            height: 70px;
+            margin: 0 12px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            animation: icon-float 3s ease-in-out infinite;
+            transition: 0.3s;
+        }
+        
+        .icon-slide-item:hover {
+            transform: scale(1.15);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(255, 215, 0, 0.1));
+        }
+        
+        .icon-slide-item:nth-child(even) {
+            animation-delay: 0.5s;
+        }
+        
+        .icon-slide-item:nth-child(3n) {
+            animation-delay: 1s;
+        }
+        
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(3deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-8px) rotate(-3deg); }
         }
         
         .success {
@@ -835,6 +884,12 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .icon-slide-item {
+                min-width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -886,21 +941,6 @@
     <!-- Crypto Ticker -->
     <div class="crypto-ticker">
         <div class="ticker-wrapper">
-            <div class="ticker-item">
-                <i class="fab fa-bitcoin"></i>
-                <span>BTC: <span class="ticker-price">$67,234</span></span>
-                <span class="ticker-change up">+2.4%</span>
-            </div>
-            <div class="ticker-item">
-                <i class="fab fa-ethereum"></i>
-                <span>ETH: <span class="ticker-price">$3,456</span></span>
-                <span class="ticker-change up">+1.8%</span>
-            </div>
-            <div class="ticker-item">
-                <i class="fas fa-coins"></i>
-                <span>USDT: <span class="ticker-price">$1.00</span></span>
-                <span class="ticker-change">0.0%</span>
-            </div>
             <div class="ticker-item">
                 <i class="fab fa-bitcoin"></i>
                 <span>BTC: <span class="ticker-price">$67,234</span></span>
@@ -976,9 +1016,8 @@
                     </ul>
                     <button class="invest-btn" onclick="openPayment(500, 'Starter', 7)">
                         <div class="btn-content">
-                            <div class="btn-label">Send Payment To:</div>
-                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
-                            <div class="btn-action">Click to Confirm Payment</div>
+                            <div class="btn-label">Click to make payment</div>
+                    
                         </div>
                     </button>
                 </div>
@@ -997,9 +1036,8 @@
                     </ul>
                     <button class="invest-btn" onclick="openPayment(1000, 'Pro', 7)">
                         <div class="btn-content">
-                            <div class="btn-label">Send Payment To:</div>
-                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
-                            <div class="btn-action">Click to Confirm Payment</div>
+                            <div class="btn-label">Click to make payment</div>
+                           
                         </div>
                     </button>
                 </div>
@@ -1017,9 +1055,8 @@
                     </ul>
                     <button class="invest-btn" onclick="openPayment(2000, 'Premium', 10)">
                         <div class="btn-content">
-                            <div class="btn-label">Send Payment To:</div>
-                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
-                            <div class="btn-action">Click to Confirm Payment</div>
+                            <div class="btn-label">Click to make payment</div>
+                           
                         </div>
                     </button>
                 </div>
@@ -1038,9 +1075,8 @@
                     </ul>
                     <button class="invest-btn" onclick="openPayment(5000, 'VIP Elite', 14)">
                         <div class="btn-content">
-                            <div class="btn-label">Send Payment To:</div>
-                            <div class="btn-wallet">bc1ppr9h6egrlnpuy343jkzpkadzs8jkrc7h6fw3lhd8udjr4tpks2vq5t8084</div>
-                            <div class="btn-action">Click to Confirm Payment</div>
+                            <div class="btn-label">Click to make payment:</div>
+                           
                         </div>
                     </button>
                 </div>
@@ -1246,8 +1282,34 @@
                 </button>
             </div>
             
-            <div class="qr-code" id="qrCode">
-                <canvas id="qrCanvas"></canvas>
+            <!-- Icon Slider -->
+            <div class="icon-slider">
+                <div class="icon-track">
+                    <div class="icon-slide-item">🔒</div>
+                    <div class="icon-slide-item">💎</div>
+                    <div class="icon-slide-item">🚀</div>
+                    <div class="icon-slide-item">⚡</div>
+                    <div class="icon-slide-item">💰</div>
+                    <div class="icon-slide-item">🔥</div>
+                    <div class="icon-slide-item">⭐</div>
+                    <div class="icon-slide-item">🎯</div>
+                    <div class="icon-slide-item">💵</div>
+                    <div class="icon-slide-item">✨</div>
+                    <div class="icon-slide-item">🏆</div>
+                    <div class="icon-slide-item">📈</div>
+                    <div class="icon-slide-item">🔒</div>
+                    <div class="icon-slide-item">💎</div>
+                    <div class="icon-slide-item">🚀</div>
+                    <div class="icon-slide-item">⚡</div>
+                    <div class="icon-slide-item">💰</div>
+                    <div class="icon-slide-item">🔥</div>
+                    <div class="icon-slide-item">⭐</div>
+                    <div class="icon-slide-item">🎯</div>
+                    <div class="icon-slide-item">💵</div>
+                    <div class="icon-slide-item">✨</div>
+                    <div class="icon-slide-item">🏆</div>
+                    <div class="icon-slide-item">📈</div>
+                </div>
             </div>
             
             <div class="timer" id="timer">Time Remaining: 30:00</div>
@@ -1310,25 +1372,8 @@
             document.getElementById('days').innerText = days;
             document.getElementById('paymentOverlay').style.display = 'flex';
             
-            // Generate QR Code (simplified - in production use a QR library)
-            generateQR();
-            
             // Start countdown timer
             startTimer();
-        }
-
-        function generateQR() {
-            const canvas = document.getElementById('qrCanvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = 200;
-            canvas.height = 200;
-            
-            // Simple placeholder - use a real QR library in production
-            ctx.fillStyle = '#000';
-            ctx.fillRect(0, 0, 200, 200);
-            ctx.fillStyle = '#fff';
-            ctx.font = '12px monospace';
-            ctx.fillText('QR Code', 70, 100);
         }
 
         function startTimer() {
@@ -1401,9 +1446,22 @@
             });
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            alert('Mobile menu - implement as needed');
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.right = '20px';
+                navLinks.style.background = 'rgba(0, 0, 0, 0.98)';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderRadius = '15px';
+                navLinks.style.border = '1px solid rgba(255, 215, 0, 0.3)';
+            }
         });
 
         // Add scroll effect to header
@@ -1422,4 +1480,19 @@
         });
     </script>
 </body>
-</html>
+</html>-price">$3,456</span></span>
+                <span class="ticker-change up">+1.8%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fas fa-coins"></i>
+                <span>USDT: <span class="ticker-price">$1.00</span></span>
+                <span class="ticker-change">0.0%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fab fa-bitcoin"></i>
+                <span>BTC: <span class="ticker-price">$67,234</span></span>
+                <span class="ticker-change up">+2.4%</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fab fa-ethereum"></i>
+                <span>ETH: <span class="ticker
